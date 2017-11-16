@@ -23,7 +23,7 @@
 		<div id="overlay"></div>
 		<div id="main">
 			<!-- Left Side -->
-			<div class="left-side">
+			<div class="left-side" id="blog">
 				<div class="header">
 					<a href="#">
 						<img src="./images/header.jpg" alt="">
@@ -98,6 +98,23 @@
 		love.click(function () {
 			$('#love_con').show().siblings().hide()
 		})
+
+        let w = $(window).width()
+        if(w < 980){
+			$('.left-side').css({width: '88%', top: -150})
+			$('.right-side').css({width: '88%', top: -300, left: '7%'})
+            $('video').css({'border-top-left-radius': 0, 'border-top-right-radius': 0})
+	        poem.hide()
+	        love.hide()
+
+
+	        function handler () {
+		        location.href = 'http://blog.ityufeng.cn/'
+	        }
+	        let blog = document.querySelector('#blog')
+	        blog.addEventListener('touchstart', handler, {passive: true})
+        }
+
 	})
 </script>
 </html>
